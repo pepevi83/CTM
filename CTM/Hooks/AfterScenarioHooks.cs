@@ -37,10 +37,9 @@ namespace CTM.Hooks
                     var fileName = string.Format(
                                         CultureInfo.CurrentCulture,
                                         "[{0}][{1}] {2}_{3}.png",
-                                        TestContext.CurrentContext.Test.Name,
                                         FeatureContext.Current.FeatureInfo.Title,
-                                        this.featureContext.FeatureInfo.Title,
                                         ScenarioContext.Current.ScenarioInfo.Title,
+                                        TestContext.CurrentContext.Test.Name,
                                         date);
 
                     try
