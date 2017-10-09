@@ -32,7 +32,6 @@ namespace CTM.Hooks
                 {
                     var screenshot = ((ITakesScreenshot)this.webBrowser.Driver).GetScreenshot();
 
-
                     var date = DateTime.Now.ToString("yyyMMdd_HHmmss");
 
                     var fileName = string.Format(
