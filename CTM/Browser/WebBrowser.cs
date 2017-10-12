@@ -11,53 +11,44 @@ namespace CTM.Browser
     [Binding]
     public class WebBrowser
     {
-        private IWebDriver driver;
+        private readonly IWebDriver driver;
 
         public WebBrowser()
         {
+            driver = this.SetupBrowser(ConfigurationManager.AppSettings["Browser"]);
         }
 
-        public IWebDriver Driver
-        {
-            get
-            {
-                if (driver == null)
-                {
-                    this.SetupBrowser(ConfigurationManager.AppSettings["Browser"]);
-                }
-
-                return driver;
-            }
-        }
+        public IWebDriver Driver => this.driver;
 
         public void Teardown()
         {
-            this.Driver.Dispose();
+            this.Driver.Quit();
         }
 
-        public void SetupBrowser(string browser)
+        private IWebDriver SetupBrowser(string browser)
         {
-            if (driver == null)
+            IWebDriver driver;
+
+            switch (browser.ToUpper())
             {
-                switch (browser)
-                {
-                    case "CHROME":
-                        driver = new ChromeDriver();
-                        break;
+                case "CHROME":
+                    driver = new ChromeDriver();
+                    break;
 
-                    case "IE":
-                        driver = new InternetExplorerDriver();
-                        break;
+                case "IE":
+                    driver = new InternetExplorerDriver();
+                    break;
 
-                    case "FIREFOX":
-                    default:
-                        driver = new FirefoxDriver();
-                        break;
-                }
-
-                driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(60);
-                driver.Manage().Window.Maximize();
+                case "FIREFOX":
+                default:
+                    driver = new FirefoxDriver();
+                    break;
             }
+
+            driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(60);
+            driver.Manage().Window.Maximize();
+
+            return driver;
         }
     }
 }

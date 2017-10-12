@@ -12,15 +12,11 @@ namespace CTM.Hooks
     [Binding]
     public sealed class AfterScenarioHooks
     {
-        private readonly WebBrowser webBrowser;
-
-        private readonly ScenarioContext scenarioContext;
-
-        private readonly FeatureContext featureContext;
+        private readonly WebBrowser browser;
 
         public AfterScenarioHooks(WebBrowser browser)
         {
-            this.webBrowser = browser;
+            this.browser = browser;
         }
 
         [AfterScenario]
@@ -28,18 +24,17 @@ namespace CTM.Hooks
         {
             try
             {
-                if (this.scenarioContext.TestError != null)
+                if (ScenarioContext.Current.TestError != null)
                 {
-                    var screenshot = ((ITakesScreenshot)this.webBrowser.Driver).GetScreenshot();
+                    var screenshot = ((ITakesScreenshot)this.browser.Driver).GetScreenshot();
 
                     var date = DateTime.Now.ToString("yyyMMdd_HHmmss");
 
                     var fileName = string.Format(
                                         CultureInfo.CurrentCulture,
-                                        "[{0}][{1}] {2}_{3}.png",
+                                        "{0}_{1}_{2}.png",
                                         FeatureContext.Current.FeatureInfo.Title,
                                         ScenarioContext.Current.ScenarioInfo.Title,
-                                        TestContext.CurrentContext.Test.Name,
                                         date);
 
                     try
@@ -64,7 +59,7 @@ namespace CTM.Hooks
             }
             finally
             {
-                this.webBrowser.Teardown();
+                this.browser.Teardown();
             }
         }
     }

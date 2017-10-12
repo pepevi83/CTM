@@ -2,26 +2,28 @@
 using System.Configuration;
 using TechTalk.SpecFlow;
 using CTM.Browser;
+using CTM.PageObjects;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-
-namespace CTM.Tests.Steps
+namespace CTM.Tests
 {
     [Binding]
-    public class CTMSteps
+    public class CTMSteps : Steps
     {
         private WebBrowser browser;
-        private BasePageObject basePage;
+        private CompareTheMarket ctm;
 
-        public CTMSteps(WebBrowser browser, BasePageObject basePage)
+        public CTMSteps(WebBrowser browser)
         {
             this.browser = browser;
-            this.basePage = basePage;
+            this.ctm = new CompareTheMarket(browser.Driver);
         }
 
         [Given(@"I visit the energy comparison in CTM")]
         public void GivenIVisitTheEnergyComparisonInCTM()
         {
-            this.basePage.OpenEnergyComparisonSite();
+            this.ctm.OpenEnergyComparisonSite();
+            Assert.IsFalse(true);
         }
     }
 }
