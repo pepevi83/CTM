@@ -76,7 +76,17 @@
   <ItemGroup>
     <Compile Include="Browser\WebBrowser.cs" />
     <Compile Include="Hooks\AfterScenarioHooks.cs" />
+    <Compile Include="PageObjects\BasePageObject.cs" />
+    <Compile Include="PageObjects\Details.cs" />
+    <Compile Include="PageObjects\Energy.cs" />
+    <Compile Include="PageObjects\Suppliers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\Features\CTM.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CTM.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\Steps\CTMSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -91,12 +101,13 @@
     <None Include="SpecRunTestProfile_2011_09.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Tests\Features\CTM.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CTM.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />
-    <Folder Include="PageObjects\" />
-    <Folder Include="Tests\Features\" />
-    <Folder Include="Tests\Steps\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

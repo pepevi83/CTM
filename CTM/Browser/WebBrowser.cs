@@ -11,7 +11,7 @@ namespace CTM.Browser
     [Binding]
     public class WebBrowser
     {
-        private readonly IWebDriver driver;
+        private IWebDriver driver;
 
         public WebBrowser()
         {
@@ -35,30 +35,29 @@ namespace CTM.Browser
             this.Driver.Dispose();
         }
 
-        public IWebDriver SetupBrowser(string browser)
+        public void SetupBrowser(string browser)
         {
-            IWebDriver driver;
-            
-            switch (browser)
+            if (driver == null)
             {
-                case "CHROME":
-                    driver = new ChromeDriver();
-                    break;
+                switch (browser)
+                {
+                    case "CHROME":
+                        driver = new ChromeDriver();
+                        break;
 
-                case "IE":
-                    driver = new InternetExplorerDriver();
-                    break;
+                    case "IE":
+                        driver = new InternetExplorerDriver();
+                        break;
 
-                case "FIREFOX":
-                default:
-                    driver = new FirefoxDriver();
-                    break;
+                    case "FIREFOX":
+                    default:
+                        driver = new FirefoxDriver();
+                        break;
+                }
+
+                driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(60);
+                driver.Manage().Window.Maximize();
             }
-
-            driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(60);
-            driver.Manage().Window.Maximize();
-
-            return driver;
         }
     }
 }

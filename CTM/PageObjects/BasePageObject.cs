@@ -5,6 +5,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
+using System.Configuration;
 
 /// <summary>
 /// Summary description for Class1
@@ -22,6 +23,11 @@ public abstract class BasePageObject
     public BasePageObject(IWebDriver webDriver)
     {
         driver = webDriver;
-        PageFactory.InitElements(this.Driver, this);
+        PageFactory.InitElements(webDriver, this);
+    }
+
+    public void OpenEnergyComparisonSite()
+    {
+        this.driver.Navigate().GoToUrl(ConfigurationManager.AppSettings["Browser"]);
     }
 }
