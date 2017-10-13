@@ -17,8 +17,10 @@ namespace CTM.Tests.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.2.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("CTM", SourceFile="Tests\\Features\\CTM.feature", SourceLine=0)]
-    public partial class CTMFeature
+    [TechTalk.SpecRun.FeatureAttribute("Compare The Market Energy comparison", Description="    In order to get quotes from different companies that provide energy products\r" +
+        "\n    As a user of Compare The Market\r\n    I want to be able to select different " +
+        "energy during the user journey", SourceFile="Tests\\Features\\CTM.feature", SourceLine=0)]
+    public partial class CompareTheMarketEnergyComparisonFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
@@ -30,7 +32,9 @@ namespace CTM.Tests.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "CTM", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Compare The Market Energy comparison", "    In order to get quotes from different companies that provide energy products\r" +
+                    "\n    As a user of Compare The Market\r\n    I want to be able to select different " +
+                    "energy during the user journey", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -61,13 +65,13 @@ namespace CTM.Tests.Features
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Test1", SourceLine=2)]
+        [TechTalk.SpecRun.ScenarioAttribute("Test1", SourceLine=5)]
         public virtual void Test1()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Test1", ((string[])(null)));
-#line 3
+#line 6
 this.ScenarioSetup(scenarioInfo);
-#line 4
+#line 7
  testRunner.Given("I visit the energy comparison in CTM", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             this.ScenarioCleanup();

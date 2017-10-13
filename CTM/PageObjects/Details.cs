@@ -1,20 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
-using OpenQA.Selenium.Support.PageObjects;
-using OpenQA.Selenium.Support.UI;
-
-
-namespace CTM.PageObjects
+﻿namespace CTM.PageObjects
 {
+    using OpenQA.Selenium;
+    using OpenQA.Selenium.Support.PageObjects;
+
     /// <summary>
     /// Summary description for Class1
     /// </summary>
-    public class Details : CompareTheMarket
+    public class Details : BasePageObject
     {
-
         [FindsBy(How = How.XPath, Using = "//div[@id='tariff-selection-question']//input")]
         private IWebElement tariffType;
 

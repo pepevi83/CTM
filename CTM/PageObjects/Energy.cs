@@ -5,14 +5,14 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
-
+using System.Configuration;
 
 namespace CTM.PageObjects
 {
     /// <summary>
     /// Summary description for Class1
     /// </summary>
-    public class Energy : CompareTheMarket
+    public class Energy : BasePageObject
     {
         [FindsBy(How = How.Id, Using = "go-back")]
         private IWebElement back;
@@ -91,6 +91,13 @@ namespace CTM.PageObjects
             //
             // TODO: Add constructor logic here
             //
+        }
+
+        public static Energy NavigateTo(IWebDriver webDriver)
+        {
+            webDriver.Navigate().GoToUrl(ConfigurationManager.AppSettings["URL"]);
+
+            return new Energy(webDriver);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace CTM.PageObjects
     /// <summary>
     /// Summary description for Class1
     /// </summary>
-    public class Suppliers : CompareTheMarket
+    public class Suppliers : BasePageObject
     {
         [FindsBy(How = How.Id, Using = "your-postcode")]
         private IWebElement postCodeInput;

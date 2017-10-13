@@ -76,9 +76,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Browser\WebBrowser.cs" />
+    <Compile Include="Browser\WebBrowser.cs">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Hooks\AfterScenarioHooks.cs" />
-    <Compile Include="PageObjects\CompareTheMarket.cs" />
+    <Compile Include="PageObjects\BasePageObject.cs" />
     <Compile Include="PageObjects\Details.cs" />
     <Compile Include="PageObjects\Energy.cs" />
     <Compile Include="PageObjects\Suppliers.cs" />

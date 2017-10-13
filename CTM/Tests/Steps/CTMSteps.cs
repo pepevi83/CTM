@@ -11,18 +11,17 @@ namespace CTM.Tests
     public class CTMSteps : Steps
     {
         private WebBrowser browser;
-        private CompareTheMarket ctm;
+        private BasePageObject ctm;
 
         public CTMSteps(WebBrowser browser)
         {
             this.browser = browser;
-            this.ctm = new CompareTheMarket(browser.Driver);
         }
 
         [Given(@"I visit the energy comparison in CTM")]
         public void GivenIVisitTheEnergyComparisonInCTM()
         {
-            this.ctm.OpenEnergyComparisonSite();
+            var energySection = Energy.NavigateTo(this.browser.Driver);
             Assert.IsFalse(true);
         }
     }

@@ -1,14 +1,11 @@
-﻿using System;
-using System.Drawing.Imaging;
-using System.Globalization;
-using CTM.Browser;
-using OpenQA.Selenium.Support.Extensions;
-using TechTalk.SpecFlow;
-using OpenQA.Selenium;
-using NUnit.Framework;
-
-namespace CTM.Hooks
+﻿namespace CTM.Hooks
 {
+    using System;
+    using System.Globalization;
+    using CTM.Browser;
+    using OpenQA.Selenium;
+    using TechTalk.SpecFlow;
+
     [Binding]
     public sealed class AfterScenarioHooks
     {
@@ -28,7 +25,7 @@ namespace CTM.Hooks
                 {
                     var screenshot = ((ITakesScreenshot)this.browser.Driver).GetScreenshot();
 
-                    var date = DateTime.Now.ToString("yyyMMdd_HHmmss");
+                    var date = DateTime.Now.ToString("yyyMMdd_HHmmss", CultureInfo.CurrentCulture);
 
                     var fileName = string.Format(
                                         CultureInfo.CurrentCulture,
