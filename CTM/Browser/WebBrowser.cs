@@ -1,13 +1,13 @@
-﻿using System;
-using System.Configuration;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.IE;
-using TechTalk.SpecFlow;
-
-namespace CTM.Browser
+﻿namespace CTM.Browser
 {
+    using System;
+    using System.Configuration;
+    using OpenQA.Selenium;
+    using OpenQA.Selenium.Chrome;
+    using OpenQA.Selenium.Firefox;
+    using OpenQA.Selenium.IE;
+    using TechTalk.SpecFlow;
+
     [Binding]
     public class WebBrowser
     {
@@ -15,7 +15,7 @@ namespace CTM.Browser
 
         public WebBrowser()
         {
-            driver = this.SetupBrowser(ConfigurationManager.AppSettings["Browser"]);
+            this.driver = SetupBrowser(ConfigurationManager.AppSettings["Browser"]);
         }
 
         public IWebDriver Driver => this.driver;
@@ -25,7 +25,7 @@ namespace CTM.Browser
             this.Driver.Quit();
         }
 
-        private IWebDriver SetupBrowser(string browser)
+        private static IWebDriver SetupBrowser(string browser)
         {
             IWebDriver driver;
 

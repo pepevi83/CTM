@@ -1,12 +1,10 @@
-﻿using System;
-using System.Configuration;
-using TechTalk.SpecFlow;
-using CTM.Browser;
-using CTM.PageObjects;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace CTM.Tests
+﻿namespace CTM.Tests
 {
+    using CTM.Browser;
+    using CTM.PageObjects;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using TechTalk.SpecFlow;
+
     [Binding]
     public class CTMSteps : Steps
     {

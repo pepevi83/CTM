@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
-using OpenQA.Selenium.Support.PageObjects;
-using OpenQA.Selenium.Support.UI;
-using System.Configuration;
-
-namespace CTM.PageObjects
+﻿namespace CTM.PageObjects
 {
+    using System.Configuration;
+    using OpenQA.Selenium;
+    using OpenQA.Selenium.Support.PageObjects;    
+
     /// <summary>
     /// Summary description for Class1
     /// </summary>
@@ -85,12 +80,8 @@ namespace CTM.PageObjects
         [FindsBy(How = How.Id, Using = "type-of-Gas-bill-dropdown")]
         private IWebElement gasSpendDropdown;
 
-
         public Energy(IWebDriver webDriver) : base(webDriver)
         {
-            //
-            // TODO: Add constructor logic here
-            //
         }
 
         public static Energy NavigateTo(IWebDriver webDriver)

@@ -27,13 +27,10 @@
         private IWebElement back;
 
         [FindsBy(How = How.Id, Using = "email-submit")]
-        private IWebElement goToPrices;
+        private IWebElement toPrices;
 
         public Details(IWebDriver webDriver) : base(webDriver)
         {
-            //
-            // TODO: Add constructor logic here
-            //
         }
     }
 }

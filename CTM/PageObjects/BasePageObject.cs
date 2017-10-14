@@ -15,7 +15,7 @@
 
         [FindsBy(How = How.CssSelector, Using = "#header-container li span.text")]
         private IWebElement sections;
-
+        
         protected BasePageObject(IWebDriver webDriver)
         {
             this.driver = webDriver;
