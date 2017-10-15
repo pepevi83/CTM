@@ -8,7 +8,7 @@
     /// </summary>
     public abstract class BasePageObject
     {
-        private readonly IWebDriver driver;
+        protected readonly IWebDriver Driver;
 
         [FindsBy(How = How.Id, Using = "ctm-logo")]
         private IWebElement logo;
@@ -18,7 +18,7 @@
         
         protected BasePageObject(IWebDriver webDriver)
         {
-            this.driver = webDriver;
+            this.Driver = webDriver;
             PageFactory.InitElements(webDriver, this);
         }
     }

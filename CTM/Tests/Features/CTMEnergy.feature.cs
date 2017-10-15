@@ -19,13 +19,13 @@ namespace CTM.Tests.Features
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [TechTalk.SpecRun.FeatureAttribute("Compare The Market Energy comparison", Description="    In order to get quotes from different companies that provide energy products\r" +
         "\n    As a user of Compare The Market\r\n    I want to be able to select different " +
-        "energy during the user journey", SourceFile="Tests\\Features\\CTM.feature", SourceLine=0)]
+        "energy during the user journey", SourceFile="Tests\\Features\\CTMEnergy.feature", SourceLine=0)]
     public partial class CompareTheMarketEnergyComparisonFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "CTM.feature"
+#line 1 "CTMEnergy.feature"
 #line hidden
         
         [TechTalk.SpecRun.FeatureInitialize()]
@@ -72,7 +72,21 @@ namespace CTM.Tests.Features
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
- testRunner.Given("I visit the energy comparison in CTM", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I visit the energy comparison site on CTM", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 8
+ testRunner.When("I enter PE2 6YS postCode", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 9
+  testRunner.And("I verify is a valid PostCode", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 10
+  testRunner.And("I select Yes in I have my bill handy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 11
+  testRunner.And("I want to compare Gas&Electricity", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 12
+  testRunner.And("I select No in Gas&Electricy is same supplier", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 13
+  testRunner.And("I select E.ON as electricity supplier from radio buttons", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 14
+  testRunner.And("I select Bulb as gas supplier from dropdown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

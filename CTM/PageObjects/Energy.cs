@@ -83,12 +83,5 @@
         public Energy(IWebDriver webDriver) : base(webDriver)
         {
         }
-
-        public static Energy NavigateTo(IWebDriver webDriver)
-        {
-            webDriver.Navigate().GoToUrl(ConfigurationManager.AppSettings["URL"]);
-
-            return new Energy(webDriver);
-        }
     }
 }
