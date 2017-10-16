@@ -79,6 +79,9 @@
     <Compile Include="Browser\WebBrowser.cs">
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>
+    <Compile Include="Common\Constants\Errors.cs" />
+    <Compile Include="Common\Constants\HelpMessages.cs" />
+    <Compile Include="Common\Constants\Questions.cs" />
     <Compile Include="Extensions\DriverExtensions.cs" />
     <Compile Include="Extensions\ElementExtensions.cs" />
     <Compile Include="Hooks\AfterScenarioHooks.cs" />
