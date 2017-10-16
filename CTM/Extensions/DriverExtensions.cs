@@ -12,5 +12,12 @@
 
             wait.Until(ExpectedConditions.ElementIsVisible(by));
         }
+
+        public static void WaitForElementInvisible(this IWebDriver driver, By by, int timeout = 5)
+        {
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeout));
+
+            wait.Until(ExpectedConditions.InvisibilityOfElementLocated(by));
+        }
     }
 }
