@@ -80,6 +80,7 @@
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="Extensions\DriverExtensions.cs" />
+    <Compile Include="Extensions\ElementExtensions.cs" />
     <Compile Include="Hooks\AfterScenarioHooks.cs" />
     <Compile Include="PageObjects\BasePageObject.cs" />
     <Compile Include="PageObjects\Details.cs" />

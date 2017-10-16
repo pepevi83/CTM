@@ -9,7 +9,6 @@
     public class CTMSteps : Steps
     {
         private WebBrowser browser;
-        private BasePageObject ctm;
 
         public CTMSteps(WebBrowser browser)
         {
@@ -20,6 +19,7 @@
         public void GivenIVisitTheEnergyComparisonSiteOnCTM()
         {
             var suppliersSection = Suppliers.NavigateTo(this.browser.Driver);
+
             ScenarioContext.Current.Add("SuppliersSection", suppliersSection);
         }
 
@@ -49,7 +49,7 @@
             {
                 suppliersSection.IHaveBillHandy.Click();
             }
-            else if (option.ToUpper().Equals("NO"))
+            else
             {
                 suppliersSection.IDontHaveBillHandy.Click();
             }
@@ -60,17 +60,17 @@
         {
             var suppliersSection = ScenarioContext.Get<Suppliers>("SuppliersSection");
 
-            if (option.ToUpper().Equals("GAS&ELECTRICITY"))
+            switch (option.ToUpper())
             {
-                suppliersSection.CompareGasAndElectricity.Click();
-            }
-            else if (option.ToUpper().Equals("ELECTRICITY ONLY"))
-            {
-                suppliersSection.CompareElectricity.Click();
-            }
-            else if (option.ToUpper().Equals("GAS ONLY"))
-            {
-                suppliersSection.CompareGas.Click();
+                case "GAS&ELECTRICITY":
+                    suppliersSection.CompareGasAndElectricity.Click();
+                    break;
+                case "ELECTRICITY ONLY":
+                    suppliersSection.CompareElectricity.Click();
+                    break;
+                case "GAS ONLY":
+                    suppliersSection.CompareGas.Click();
+                    break;
             }
         }
 
@@ -83,7 +83,7 @@
             {
                 suppliersSection.GasAndElectricitySameSupplier.Click();
             }
-            else if (option.ToUpper().Equals("NO"))
+            else
             {
                 suppliersSection.GasAndElectricityNoSameSupplier.Click();
             }
@@ -94,13 +94,17 @@
         {
             var suppliersSection = ScenarioContext.Get<Suppliers>("SuppliersSection");
 
-            if (power.ToUpper().Equals("ELECTRICITY"))
+            switch (power.ToUpper())
             {
-                suppliersSection.ElectricitySupplier(company, element);
-            }
-            else if (power.ToUpper().Equals("GAS"))
-            {
-                suppliersSection.GasSupplier(company, element);
+                case "ELECTRICITY":
+                    suppliersSection.ElectricitySupplier(company, element.ToUpper());
+                    break;
+                case "GAS":
+                    suppliersSection.GasSupplier(company, element.ToUpper());
+                    break;
+                case "DUAL":
+                    suppliersSection.DualSupplier(company, element.ToUpper());
+                    break;
             }
         }
     }
