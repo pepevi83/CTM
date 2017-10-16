@@ -93,11 +93,76 @@
         [FindsBy(How = How.Id, Using = "type-of-Gas-bill-dropdown")]
         public IWebElement GasSpendDropdown { get; set; }
 
+        // Energy Usage
+        [FindsBy(How = How.Id, Using = "one-two-bedroom")]
+        public IWebElement OneTwoBedroom { get; set; }
+
+        [FindsBy(How = How.Id, Using = "three-four-bedroom")]
+        public IWebElement YhreeFourBedroom { get; set; }
+
+        [FindsBy(How = How.Id, Using = "five-plus-bedroom")]
+        public IWebElement FivePlusBedroom { get; set; }
+
+        [FindsBy(How = How.Id, Using = "one-two-occupants")]
+        public IWebElement OneTwoOcuppants { get; set; }
+
+        [FindsBy(How = How.Id, Using = "three-four-occupants")]
+        public IWebElement ThreeFourOcuppants { get; set; }
+
+        [FindsBy(How = How.Id, Using = "five-plus-occupants")]
+        public IWebElement FivePlusOcuppants { get; set; }
+
+        [FindsBy(How = How.Id, Using = "gas-heat")]
+        public IWebElement GasHeating { get; set; }
+
+        [FindsBy(How = How.Id, Using = "electricity-heat")]
+        public IWebElement ElectricityHeating { get; set; }
+
+        [FindsBy(How = How.Id, Using = "other-heat")]
+        public IWebElement OtherHeating { get; set; }
+
+        [FindsBy(How = How.Id, Using = "arctic")]
+        public IWebElement ArticTemperature { get; set; }
+
+        [FindsBy(How = How.Id, Using = "temperate")]
+        public IWebElement TemperateTemperature { get; set; }
+
+        [FindsBy(How = How.Id, Using = "tropical")]
+        public IWebElement TropicalTemperature { get; set; }
+
+        [FindsBy(How = How.Id, Using = "wafer-thin")]
+        public IWebElement WaferThinInsulation { get; set; }
+
+        [FindsBy(How = How.Id, Using = "well-wrapped")]
+        public IWebElement WellWrappedInsulation { get; set; }
+
+        [FindsBy(How = How.Id, Using = "airtight")]
+        public IWebElement AirtightInsulation { get; set; }
+
+        [FindsBy(How = How.Id, Using = "gas-cooking")]
+        public IWebElement GasMainSourceCooking { get; set; }
+
+        [FindsBy(How = How.Id, Using = "electricity-cooking")]
+        public IWebElement ElectricityMainSourceCooking { get; set; }
+
+        [FindsBy(How = How.Id, Using = "other-cooking")]
+        public IWebElement OtherMainSourceCooking { get; set; }
+
+        [FindsBy(How = How.Id, Using = "hardly-ever")]
+        public IWebElement HardlyEverSomeone { get; set; }
+
+        [FindsBy(How = How.Id, Using = "evenings-weekends")]
+        public IWebElement EveningAndWeekendsSomeone { get; set; }
+
+        [FindsBy(How = How.Id, Using = "most-time")]
+        public IWebElement MostOfTimeSomeone { get; set; }
+
         // Navigation
         [FindsBy(How = How.Id, Using = "go-back")]
         public IWebElement Back;
 
         [FindsBy(How = How.Id, Using = "goto-your-energy")]
+        [FindsBy(How = How.Id, Using = "goto-person-details-button")]
         public IWebElement Next;
     }
 }
