@@ -64,40 +64,40 @@
 
         // Gas options
         [FindsBy(How = How.Id, Using = "gas-tariff-additional-info")]
-        private IWebElement GasTariffDropdown { get; set; }
+        public IWebElement GasTariffDropdown { get; set; }
 
         [FindsBy(How = How.Id, Using = "gas-payment-method-dropdown-link")]
-        private IWebElement GasPaymentMethodDropdown { get; set; }
+        public IWebElement GasPaymentMethodDropdown { get; set; }
 
         [FindsBy(How = How.Id, Using = "gas-main-heating-yes")]
-        private IWebElement GasMainHeatingYes { get; set; }
+        public IWebElement GasMainHeatingYes { get; set; }
 
         [FindsBy(How = How.Id, Using = "gas-main-heating-no")]
-        private IWebElement GasMainHeatingNo { get; set; }
+        public IWebElement GasMainHeatingNo { get; set; }
 
         [FindsBy(How = How.Id, Using = "kwhSpendG")]
-        private IWebElement GasUsageKwh { get; set; }
+        public IWebElement GasUsageKwh { get; set; }
 
         [FindsBy(How = How.Id, Using = "poundSpendG")]
-        private IWebElement GasUsagePound { get; set; }
+        public IWebElement GasUsagePound { get; set; }
 
         [FindsBy(How = How.Id, Using = "gas-usage")]
-        private IWebElement GasUsageInput { get; set; }
+        public IWebElement GasUsageInput { get; set; }
 
         [FindsBy(How = How.Id, Using = "type-of-Gas-bill-usage-dropdown")]
-        private IWebElement GasUsageDropdown { get; set; }
+        public IWebElement GasUsageDropdown { get; set; }
 
         [FindsBy(How = How.Id, Using = "gas-spend")]
-        private IWebElement GasSpend { get; set; }
+        public IWebElement GasSpend { get; set; }
 
         [FindsBy(How = How.Id, Using = "type-of-Gas-bill-dropdown")]
-        private IWebElement GasSpendDropdown { get; set; }
+        public IWebElement GasSpendDropdown { get; set; }
 
         // Navigation
         [FindsBy(How = How.Id, Using = "go-back")]
-        private IWebElement Back;
+        public IWebElement Back;
 
         [FindsBy(How = How.Id, Using = "goto-your-energy")]
-        private IWebElement Next;
+        public IWebElement Next;
     }
 }

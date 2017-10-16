@@ -74,7 +74,7 @@
         public IWebElement GasSupplierDontKnow { get; set; }
 
         [FindsBy(How = How.Id, Using = "goto-your-supplier-details")]
-        private IWebElement Next { get; set; }
+        public IWebElement Next { get; set; }
 
         public static Suppliers NavigateTo(IWebDriver webDriver)
         {
