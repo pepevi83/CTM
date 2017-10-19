@@ -1,5 +1,6 @@
 ﻿namespace CTM.PageObjects
 {
+    using System;
     using System.Configuration;
     using CTM.Extensions;
     using OpenQA.Selenium;
@@ -21,7 +22,7 @@
         [FindsBy(How = How.CssSelector, Using = "#elec-energy-suppliers-question select")]
         private IWebElement elecSuppliersSelect;
 
-        [FindsBy(How = How.XPath, Using = "#gas-energy-suppliers-question")]
+        [FindsBy(How = How.CssSelector, Using = "#gas-energy-suppliers-question")]
         private IWebElement gasSupplierQuestion;
 
         [FindsBy(How = How.CssSelector, Using = "#gas-energy-suppliers-question select")]
@@ -61,16 +62,16 @@
         [FindsBy(How = How.CssSelector, Using = ".energy-gas")]
         public IWebElement CompareGas { get; set; }
 
-        [FindsBy(How = How.Id, Using = "same-supplier-yes")]
+        [FindsBy(How = How.XPath, Using = "//label[@for='same-supplier-yes']")]
         public IWebElement GasAndElectricitySameSupplier { get; set; }
 
-        [FindsBy(How = How.Id, Using = "same-supplier-no")]
+        [FindsBy(How = How.XPath, Using = "//label[@for='same-supplier-no']")]
         public IWebElement GasAndElectricityNoSameSupplier { get; set; }
 
-        [FindsBy(How = How.Id, Using = "electricity-supplier-dont-know")]
+        [FindsBy(How = How.Id, Using = "//label[@for='electricity-supplier-dont-know']")]
         public IWebElement ElecSupplierDontKnow { get; set; }
 
-        [FindsBy(How = How.Id, Using = "gas-supplier-dont-know")]
+        [FindsBy(How = How.Id, Using = "//label[@for='gas-supplier-dont-know']")]
         public IWebElement GasSupplierDontKnow { get; set; }
 
         [FindsBy(How = How.Id, Using = "goto-your-supplier-details")]
@@ -106,6 +107,12 @@
             this.SelectSupplier("DUAL", company, element);
         }
 
+        public Energy ClickOnNext()
+        {
+            this.Next.Click();
+            return new Energy(this.Driver);
+        }
+
         public void GasSupplier(string company, string element)
         {
             this.SelectSupplier("GAS", company, element);
@@ -113,27 +120,27 @@
 
         private void SelectSupplier(string power, string company, string element)
         {
-            if (company.Equals("GAS") && element.Equals("RADIO BUTTONS"))
+            if (power.Equals("GAS") && element.Equals("RADIO BUTTONS"))
             {
-                this.gasSupplierQuestion.FindElement(By.XPath(string.Format(SupplierRadio, company)));
+                this.gasSupplierQuestion.FindElement(By.XPath(string.Format(SupplierRadio, company))).Click();
             }
-            else if (company.Equals("GAS") && element.Equals("DROPDOWN"))
+            else if (power.Equals("GAS") && element.Equals("DROPDOWN"))
             {
                 this.gasSuppliersSelect.SelectByText(company);
             }
-            else if (company.Equals("ELECTRICITY") && element.Equals("RADIO BUTTONS"))
+            else if (power.Equals("ELECTRICITY") && element.Equals("RADIO BUTTONS"))
             {
-                this.elecSupplierQuestion.FindElement(By.XPath(string.Format(SupplierRadio, company)));
+                this.elecSupplierQuestion.FindElement(By.XPath(string.Format(SupplierRadio, company))).Click();
             }
-            else if (company.Equals("ELECTRICITY") && element.Equals("DROPDOWN"))
+            else if (power.Equals("ELECTRICITY") && element.Equals("DROPDOWN"))
             {
                 this.elecSuppliersSelect.SelectByText(company);
             }
-            else if (company.Equals("DUAL") && element.Equals("RADIO BUTTONS"))
+            else if (power.Equals("DUAL") && element.Equals("RADIO BUTTONS"))
             {
-                this.dualSuppliersQuestion.FindElement(By.XPath(string.Format(SupplierRadio, company)));
+                this.dualSuppliersQuestion.FindElement(By.XPath(string.Format(SupplierRadio, company))).Click();
             }
-            else if (company.Equals("DUAL") && element.Equals("DROPDOWN"))
+            else if (power.Equals("DUAL") && element.Equals("DROPDOWN"))
             {
                 this.dualSuppliersSelect.SelectByText(company);
             }

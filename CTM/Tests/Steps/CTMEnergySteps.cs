@@ -1,6 +1,7 @@
 ﻿namespace CTM.Tests
 {
     using CTM.Browser;
+    using CTM.Extensions;
     using CTM.PageObjects;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using TechTalk.SpecFlow;
@@ -18,9 +19,7 @@
         [Given(@"I visit the energy comparison site on CTM")]
         public void GivenIVisitTheEnergyComparisonSiteOnCTM()
         {
-            var suppliersSection = Suppliers.NavigateTo(this.browser.Driver);
-
-            ScenarioContext.Current.Add("SuppliersSection", suppliersSection);
+            ScenarioContext.Current.Add("SuppliersSection", Suppliers.NavigateTo(this.browser.Driver));
         }
 
         [When(@"I enter (.*) postCode")]
@@ -105,6 +104,79 @@
                 case "DUAL":
                     suppliersSection.DualSupplier(company, element.ToUpper());
                     break;
+            }
+        }
+
+        [When(@"I click on Next on Suppliers")]
+        public void WhenIClickOnNextOnSuppliers()
+        {
+            var suppliersSection = ScenarioContext.Get<Suppliers>("SuppliersSection");
+
+            ScenarioContext.Current.Add("EnergySection", suppliersSection.ClickOnNext());
+        }
+
+        [When(@"My electricity plan is (.*)")]
+        public void WhenMyElectricityPlanIsAgeUKFixedYear(string electricityPlan)
+        {
+            var energySection = ScenarioContext.Get<Energy>("EnergySection");
+
+            energySection.ElectricityPlan.SelectByText(electricityPlan);
+        }
+
+        [When(@"I select (.*) in Economy 7 meter")]
+        public void WhenISelectNoInEconomyMeter(string option)
+        {
+            var energySection = ScenarioContext.Get<Energy>("EnergySection");
+
+            if (option.ToUpper().Equals("YES"))
+            {
+                energySection.Economy7Yes.Click();
+            }
+            else
+            {
+                energySection.Economy7No.Click();
+            }
+        }
+
+        [When(@"I pay my electricity bill (.*)")]
+        public void WhenIPayMyElectricityBillMonthlyDirectDebit(string paymentMethod)
+        {
+            var energySection = ScenarioContext.Get<Energy>("EnergySection");
+
+            energySection.ElecPaymentMethod.SelectByText(paymentMethod);
+        }
+
+        [When(@"I select (.*) in electricity is my main source of heating")]
+        public void WhenISelectYesInElectricityIsMyMainSourceOfHeating(string option)
+        {
+            var energySection = ScenarioContext.Get<Energy>("EnergySection");
+
+            if (option.ToUpper().Equals("YES"))
+            {
+                energySection.ElecMainHeatingYes.Click();
+            }
+            else
+            {
+                energySection.ElecMainHeatingNo.Click();
+            }
+        }
+
+        [When(@"My current electricity in (.*) is (.*) (.*)")]
+        public void WhenMyCurrentElectricityInKWhIsMonthly(string unit, string total, string period)
+        {
+            var energySection = ScenarioContext.Get<Energy>("EnergySection");
+
+            if (unit.ToUpper().Equals("KWH"))
+            {
+                energySection.ElecUsageKwh.Click();
+                energySection.ElecUsageInput.SendKeys(total);
+                energySection.ElecUsageDropdown.SelectByText(period);
+            }
+            else
+            {
+                energySection.ElecUsagePound.Click();
+                energySection.ElecSpendInput.SendKeys(total);
+                energySection.ElecSpendDropdown.SelectByText(period);
             }
         }
     }

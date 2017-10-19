@@ -4,11 +4,10 @@
     using OpenQA.Selenium;
     using OpenQA.Selenium.Support.PageObjects;
 
-    class Results : BasePageObject
+    public class Results : BasePageObject
     {
          private const string SearchingPricesInterstitial = "interstitial-overlay";
         
-
         public Results(IWebDriver webDriver) : base(webDriver)
         {
         }

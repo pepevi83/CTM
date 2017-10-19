@@ -17,25 +17,25 @@
         [FindsBy(How = How.Id, Using = "electricity-tariff-additional-info")]
         public IWebElement ElectricityPlan { get; set; }
 
-        [FindsBy(How = How.Id, Using = "economy-7-yes")]
+        [FindsBy(How = How.XPath, Using = "//label[@for='economy-7-yes']")]
         public IWebElement Economy7Yes { get; set; }
 
-        [FindsBy(How = How.Id, Using = "economy-7-no")]
+        [FindsBy(How = How.XPath, Using = "//label[@for='economy-7-no']")]
         public IWebElement Economy7No { get; set; }
 
         [FindsBy(How = How.Id, Using = "electricity-payment-method-dropdown-link")]
         public IWebElement ElecPaymentMethod { get; set; }
 
-        [FindsBy(How = How.Id, Using = "electricity-main-heating-yes")]
+        [FindsBy(How = How.XPath, Using = "//label[@for='electricity-main-heating-yes']")]
         public IWebElement ElecMainHeatingYes { get; set; }
 
-        [FindsBy(How = How.Id, Using = "electricity-main-heating-no")]
+        [FindsBy(How = How.XPath, Using = "//label[@for='electricity-main-heating-no']")]
         public IWebElement ElecMainHeatingNo { get; set; }
 
-        [FindsBy(How = How.Id, Using = "kwhSpend")]
+        [FindsBy(How = How.XPath, Using = "//label[@for='kwhSpend']")]
         public IWebElement ElecUsageKwh { get; set; }
 
-        [FindsBy(How = How.Id, Using = "poundSpend")]
+        [FindsBy(How = How.XPath, Using = "//label[@for='poundSpend']")]
         public IWebElement ElecUsagePound { get; set; }
 
         [FindsBy(How = How.Id, Using = "economy-7-day-usage")]
@@ -54,10 +54,10 @@
         public IWebElement ElecUsageInput { get; set; }
 
         [FindsBy(How = How.Id, Using = "electricity-usage-dropdown")]
-        public IWebElement elecUsageDropdown { get; set; }
+        public IWebElement ElecUsageDropdown { get; set; }
 
         [FindsBy(How = How.Id, Using = "electricity-spend")]
-        public IWebElement ElecSpend { get; set; }
+        public IWebElement ElecSpendInput { get; set; }
 
         [FindsBy(How = How.Id, Using = "electricity-spend-dropdown")]
         public IWebElement ElecSpendDropdown { get; set; }
@@ -159,10 +159,10 @@
 
         // Navigation
         [FindsBy(How = How.Id, Using = "go-back")]
-        public IWebElement Back;
+        public IWebElement Back { get; set; }
 
         [FindsBy(How = How.Id, Using = "goto-your-energy")]
         [FindsBy(How = How.Id, Using = "goto-person-details-button")]
-        public IWebElement Next;
+        public IWebElement Next { get; set; }
     }
 }

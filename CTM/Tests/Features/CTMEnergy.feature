@@ -10,6 +10,12 @@ Scenario: Test1
 		And I select Yes in I have my bill handy
 		And I want to compare Gas&Electricity
 		And I select No in Gas&Electricy is same supplier
-		And I select E.ON as electricity supplier from radio buttons
-		And I select Bulb as gas supplier from dropdown
+		And I select EDF Energy as electricity supplier from radio buttons
+		And I select E.ON as gas supplier from radio buttons
+		And I click on Next on Suppliers
+		And My electricity plan is Simply Fixed May17
+		And I select No in Economy 7 meter
+		And I pay my electricity bill Monthly Direct Debit
+		And I select Yes in electricity is my main source of heating
+		And My current electricity in kWh is 1000 Annually
 
